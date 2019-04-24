@@ -1,0 +1,20 @@
+{
+    "name": "weShop",
+    "version": "1.0.0",
+    "description": "- 基于微信小程序原生 -",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:lsabella/weShop.git"
+    },
+    "author": "baishu",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-eslint": "^8.2.5",
+        "eslint": "^5.0.1",
+        "eslint-config-alloy": "^1.4.2"
+    }
+}
