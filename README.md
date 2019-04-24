@@ -6,5 +6,4 @@
 ColorUI框架的GIT：https://github.com/weilanwl/ColorUI
 （此项目使用的2.0.7版本的UI框架）
 
-如有问题，请在@白舒baishu@maihaoche.commot
-t 
+如有问题，请在@白舒baishu@maihaoche.com
