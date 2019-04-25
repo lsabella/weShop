@@ -1,5 +1,6 @@
 const app = getApp();
 import apis from '../../../common/api.js';
+import api from '../../../common/api.js';
 
 Page({
   data: {
@@ -7,24 +8,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     hidden: true,
     current: 0, lines: 0,
-    swiperlist: [{
-      id: 0,
-      url: 'https://image.weilanwl.com/img/4x3-1.jpg',
-      type: 1
-    }, {
-      id: 1,
-      url: 'https://image.weilanwl.com/img/4x3-2.jpg',
-      type: 2
-
-    }, {
-      id: 2,
-      url: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      type: 3
-    }, {
-      id: 3,
-      url: 'https://image.weilanwl.com/img/4x3-4.jpg',
-      type: 4
-    }],
+    swiperlist: [],
     iconList: [{
       id: 1,
       icon: 'questionfill',
@@ -73,16 +57,24 @@ Page({
   onLoad: function () {
     /* console.log(app.globalData.StatusBar);
 		console.log(app.globalData.CustomBar); */
-	    wx.getSetting({
-	        success: res => {
-		        if (!res.authSetting['scope.userInfo']) {
-		            wx.redirectTo({
-		              	url: '/pages/auth/auth'
-		            });
-		        }
-	        }
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.redirectTo({
+            url: '/pages/auth/auth'
+          });
+        }
+      }
     });
+    this.getSwiperlist();
     this.testRequest();
+  },
+  getSwiperlist: function() {
+    apis.getSwiperlist({}, { loading: true, catchError: false }).then(res => {
+      this.setData({
+        swiperlist: res
+      });
+    });
   },
   testRequest: function() {
     console.log(9999, 'testRequest');

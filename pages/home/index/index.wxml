@@ -23,6 +23,17 @@
     </swiper-item>
 </swiper>
 
+<!--商家位置-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+    <view class='action'>
+        <text class='icon-title text-green'></text>
+        <text>杭州市余杭区良睦路...</text>
+    </view>
+    <navigator hover-class='none' url="/pages/home/position/index">
+        <view class='action' style="font-size: 27rpx;"><view class='icon-right'></view> </view>
+    </navigator>
+</view>
+
 <!--头条滚动区域-->
 <swiper class="swiperitem margin-top solid-bottom" autoplay="true" vertical="true" circular="true" bindchange="lineschange">
     <block wx:for="{{Headlines}}" wx:key="item.id">

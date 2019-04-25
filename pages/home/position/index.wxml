@@ -1,0 +1,23 @@
+<!--状态栏区域-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed none-bg text-white bg-img" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+      <navigator class='action canui-head-title' open-type="navigateBack" delta="1" hover-class="none">
+          <text class='icon-back'></text> 首页
+      </navigator>
+  </view>
+</view>
+
+<!--商家地理位置-->
+<view class="box page-body" style="top: {{CustomBar}}px;">
+  <view class="page-section page-section-gap">
+    <map
+      id="myMap"
+      style="width: 100%; height: 32rem;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      show-location
+    ></map>
+  </view>
+</view>

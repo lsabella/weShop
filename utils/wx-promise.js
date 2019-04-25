@@ -70,8 +70,9 @@ function promisify() {
         method,
         header: { 'content-type': 'application/json;charset=UTF-8;' },
         success: res => {
+          console.log(res, 'res');
           isDebug && console.log('==> sys log: ' + url, res.data);
-          res.data.success ? resolve(res.data.result) : reject(res.data);
+          res.data.success ? resolve(res.data.data) : reject(res.data);
         },
         fail: reject,
         complete: () => {

@@ -12,7 +12,6 @@ App({
     }
     let env = query.env;
     this.globalData.config = config[env] || config.default;
-    debugger;
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
