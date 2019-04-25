@@ -16,5 +16,8 @@
         "babel-eslint": "^8.2.5",
         "eslint": "^5.0.1",
         "eslint-config-alloy": "^1.4.2"
+    },
+    "dependencies": {
+        "tslint": "^5.16.0"
     }
 }
