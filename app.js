@@ -1,8 +1,10 @@
 import './utils/wx-promise.js';
 import config from './config';
+const observer = require('./libs/observer').observer;
+import store from './stores/index';
 
 // app.js
-App({
+App(observer({
   onLaunch: function (options) {
     const { query = {}} = options;
     if (query.debug) {
@@ -27,7 +29,8 @@ App({
     });
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    store: new store()
   }
-});
+}));
 

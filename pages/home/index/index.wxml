@@ -63,7 +63,8 @@
 
 <!--商家联系方式-->
 <view class="cu-list grid col-4 no-border margin-top">
-    hhh
+    {{props.store.count}}
+    {{props.store.nums}}
 </view>
 
 <!--优选商家-->

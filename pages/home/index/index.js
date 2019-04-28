@@ -1,8 +1,8 @@
 const app = getApp();
+const observer = require('../../../libs/observer').observer;
 import apis from '../../../common/api.js';
-import api from '../../../common/api.js';
 
-Page({
+Page(observer({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
@@ -28,7 +28,9 @@ Page({
       type: 4
     }],
     videosrc: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-    orgMsgs: {}
+  },
+  props: {
+    store: app.globalData.store
   },
   onLoad: function () {
     /* console.log(app.globalData.StatusBar);
@@ -65,12 +67,11 @@ Page({
   },
   // 获取商城信息 getOrgInfo
   getOrgInfo: function() {
+    const { setOrgInfos } = this.props.store;
     apis.getOrgInfo({}, { loading: true, catchError: false }).then(res => {
-      console.log(res, 'res res res');
-      this.setData({
-        orgMsgs: res
-      });
+      setOrgInfos(res);
     });
+    console.log(this.props.store.orgIfnos, 'this store');
   },
   testRequest: function() {
     console.log(9999, 'testRequest');
@@ -128,4 +129,4 @@ Page({
       url: '/pages/home/search/index'
     });
   }
-});
+}));
