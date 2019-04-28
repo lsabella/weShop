@@ -9,31 +9,7 @@ Page({
     hidden: true,
     current: 0, lines: 0,
     swiperlist: [],
-    iconList: [{
-      id: 1,
-      icon: 'questionfill',
-      color: 'red',
-      name: '好处',
-      type: 1
-    }, {
-      id: 2,
-      icon: 'group_fill',
-      color: 'orange',
-      name: '加入',
-      type: 2
-    }, {
-      id: 3,
-      icon: 'shopfill',
-      color: 'yellow',
-      name: '经营',
-      type: 1
-    }, {
-      id: 4,
-      icon: 'discoverfill',
-      color: 'olive',
-      name: '收益',
-      type: 1
-    }],
+    iconList: [],
     Headlines: [{
       id: 1,
       title: '测试标题1',
@@ -52,7 +28,7 @@ Page({
       type: 4
     }],
     videosrc: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-
+    orgMsgs: {}
   },
   onLoad: function () {
     /* console.log(app.globalData.StatusBar);
@@ -67,12 +43,32 @@ Page({
       }
     });
     this.getSwiperlist();
+    this.getIconList();
+    this.getOrgInfo();
     this.testRequest();
   },
+  // 获取轮播区域内容
   getSwiperlist: function() {
     apis.getSwiperlist({}, { loading: true, catchError: false }).then(res => {
       this.setData({
         swiperlist: res
+      });
+    });
+  },
+  // 获取快速入口 iconList
+  getIconList: function() {
+    apis.getIconList({}, { loading: true, catchError: false }).then(res => {
+      this.setData({
+        iconList: res
+      });
+    });
+  },
+  // 获取商城信息 getOrgInfo
+  getOrgInfo: function() {
+    apis.getOrgInfo({}, { loading: true, catchError: false }).then(res => {
+      console.log(res, 'res res res');
+      this.setData({
+        orgMsgs: res
       });
     });
   },

@@ -1,7 +1,12 @@
 const apis = {
   getGoodsList: 'get /data/goods',
-  // 获取首页轮播区域图片
+  // 首页
+  // 获取轮播区域图片
   getSwiperlist: 'get /data/getSwiperlist',
+  // 获取快速入口 iconList
+  getIconList: 'get /data/getIconList',
+  // 获取商城信息
+  getOrgInfo: 'get /org/info'
 };
 
 /**
